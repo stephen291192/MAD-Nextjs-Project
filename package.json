@@ -17,6 +17,8 @@
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.19.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "tailwind-toast": "^1.1.0",
     "validator": "^13.11.0"
   },

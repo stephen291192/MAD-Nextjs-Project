@@ -14,7 +14,7 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-
+import Contact from './contact'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
@@ -139,7 +139,10 @@ export default function Home() {
           {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Log in <span aria-hidden="true">&rarr;</span>
           </a> */}
-          <button className=" btn text-sm font-semibold leading-6 text-gray-900">
+          <button 
+          className=" btn text-sm font-semibold leading-6 text-gray-900"
+          
+          >
             Request Demo
           </button>
         </div>

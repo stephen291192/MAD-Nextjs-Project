@@ -50,10 +50,20 @@ body {
   color: #fff;
   font-size: 13px;
 }
+.btnFooterVi{
+  padding: 7px 15px;
+  margin-top: 10px;
+  background-color: rgb(131, 134, 139);
+  border-radius: 50px;
+  border: 1px solid  rgb(107 114 128);
+  color: #1c14a8;
+  font-size: 13px;
+  
+}
 .logo{
   font-size: 24px;
   font-weight: 800;
-}
+}s
 .Newsletter{
   position: relative;
   top:30px;
@@ -73,4 +83,42 @@ text-align: center;
 width: 50px;
 margin: 0 auto;
 padding-bottom: 10px;
+}
+.iframClas{
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  /* padding: 10px; */
+  color: #2d2727 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* .slick-prev:before {
+ position: relative;
+  left: -50px !important;
+}
+.slick-next:before{
+  position: relative;
+  right: -50px !important;
+} */
+
+/* .box{
+  padding: 20px;
+  border: 1px solid red;
+  margin: 10px;
+  gap: 100px;
+  display: flex;position: relative;
+} */
+
+.height{
+  height: 700px;
+}
+.widthbox{
+width:1200px;
 }
