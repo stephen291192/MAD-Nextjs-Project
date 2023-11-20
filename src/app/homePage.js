@@ -1,32 +1,66 @@
 "use client"
 
 import React, { useState } from 'react'
+import validator from 'validator'
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, 
   LockClosedIcon } from '@heroicons/react/24/outline'
-  import {
-    CreateMailReq
-  } from './apiservice/api'
+  import {CreateMailReq} from './apiservice/api'
 const HomePage = () => {
+  const { toast, snackbar } = require('tailwind-toast')
   const [email, setEmail] = useState('');
-  const CreateMailReqFunction = async (companyId) => {
-    const body = {
-      roleName: roleName,
-      code: RoleCode,
-      abbreviation: RoleAbb,
-      reportingTo: reportingTo?.value === undefined ? null : reportingTo.value,
-    }
+  const [emailError, setEmailError] = useState('')
 
-    const response = await CreateMailReq(body, companyId, departmentId, designationId)
-    if (response) {
-      if (response?.success) {
-        toast.success(response?.message)
-        setAddScreen(!addScreen)
-        setRoleName('')
-        // setDesignationOpt([])
-        setDesignation('')
-        setTableShow(false)
+  const validateEmail = (e) => {
+    var email = e.target.value
+    if (validator.isEmail(email)) {
+      setEmailError()
+    } else {
+      setEmailError('Invalid Email!')
+    }
+  }
+
+// Create API Function - Email Request
+  const CreateMailReqFunction = async () => {
+    const body = {
+     email:email     
+    }
+    var response
+    try {
+      response = await CreateMailReq(body)
+      if (response) {
+        // toast.success(response?.message)
+        
+        toast().warning(response?.message)
+        .with({
+          shape: 'snackBar',
+          duration: 4000,
+          speed: 1000,
+          positionX: 'center',
+          positionY: 'left',
+          color: 'bg-red-300',
+          fontColor: 'white',
+          fontTone: 800
+        }).show()
+
+        if (response.status === 'SUCCESS') {
+         
+          setEmail('')
+          setEmailError('')
+        } else {
+          // toast.error('No Data Found')
+        }
+      }else{
+        alert('2')
+      }
+    } catch (err) {
+      if (err.response) {
+        if (err.response.data && err.response.data.success === false) {
+          // toast.error(err.response.data.error)
+        }
+      } else if (err.request) {
+        // toast.error('No Internet')
       } else {
-        toast.error(response?.error)
+        // toast.error('Something Went Wrong' + err)
       }
     }
   }
@@ -94,27 +128,45 @@ const HomePage = () => {
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
+              <span
+                                style={{
+                                  fontWeight: '500',
+                                  fontSize: '12px',
+                                  color: 'red',
+                                }}
+                              >
+                                {emailError}
+                              </span>
               <input
                 id="email-address"
                 name="email"
                 type="email"
                 value={email}
+                onChange={(e)=>{
+                  setEmail(e.target.value)
+                  validateEmail(e);
+                }}
                 autoComplete="email"
                 required
-                className="border min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                className="border min-w-0 flex-auto 
+                rounded-md bg-white/5 px-3.5 py-2 text-gray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                 placeholder="Enter your email"
+                
               />
+               
+              
               <button
                 type="submit"
-                onClick={(e) => {
-                  setEmail(e.target.value)
-                  CreateMailReqFunction(state.companyId)
-                  
+                onClick={() => {
+                  CreateMailReqFunction()
+                  setEmail('')
+                 
                 }}
                 className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                 Subscribe
               </button>
+             
             </div>
           
             {/* <div className="mt-10 flex items-center justify-center gap-x-6">

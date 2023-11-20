@@ -4,14 +4,14 @@ export const URL = `http://192.168.2.30:2505/api/v1`
 
 
 //Create the mail Request 
-export async function CreateMailReq(body, companyId) {
-    const token = localStorage.getItem(USERTOKEN)
+export async function CreateMailReq(body) {
+    // const token = localStorage.getItem(USERTOKEN)
     try {
-      const response = await fetch(`${URL}/role/${companyId}`, {
+      const response = await fetch(`${URL}/email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: token,
+        //   Authorization: token,
         },
         body: JSON.stringify(body),
       })
