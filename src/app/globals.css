@@ -62,4 +62,15 @@ body {
 .mC{
   margin: 0 auto;
 }
-
+.cardbg{
+  background-color: #77736f59;
+}
+.textcolor{
+color: #c6c6c6;
+text-align: center;
+}
+.imagemax{
+width: 50px;
+margin: 0 auto;
+padding-bottom: 10px;
+}

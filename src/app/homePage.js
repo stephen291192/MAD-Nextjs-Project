@@ -11,9 +11,10 @@ const HomePage = () => {
   const [emailError, setEmailError] = useState('')
 
   const validateEmail = (e) => {
+    
     var email = e.target.value
     if (validator.isEmail(email)) {
-      setEmailError()
+      setEmailError('')
     } else {
       setEmailError('Invalid Email!')
     }
@@ -27,10 +28,10 @@ const HomePage = () => {
     var response
     try {
       response = await CreateMailReq(body)
+      // alert('01')
+     
       if (response) {
-        // toast.success(response?.message)
-        
-        toast().warning(response?.message)
+        toast().success(response?.message)
         .with({
           shape: 'snackBar',
           duration: 4000,
@@ -41,7 +42,7 @@ const HomePage = () => {
           fontColor: 'white',
           fontTone: 800
         }).show()
-
+       
         if (response.status === 'SUCCESS') {
          
           setEmail('')
@@ -145,6 +146,7 @@ const HomePage = () => {
                 onChange={(e)=>{
                   setEmail(e.target.value)
                   validateEmail(e);
+                  
                 }}
                 autoComplete="email"
                 required
@@ -162,6 +164,7 @@ const HomePage = () => {
                   setEmail('')
                  
                 }}
+                disabled={emailError}
                 className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                 Subscribe
@@ -183,7 +186,7 @@ const HomePage = () => {
           </div>
             
         </div>
-        <div className="max-w-7xl mC">
+        <div className="max-w-7xl mC ">
         <div class="grid grid-cols-5 bg-gray-300">
             <div class="bg-gray-300 p-4 text-center">
               
@@ -216,39 +219,83 @@ const HomePage = () => {
      
         <br /><br /><br />
       </div>
-
+ {/* Featiure section 02 */}
       <div className="bg-black py-24 sm:py-10 ">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl lg:text-center">
-          {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
-          <p className="mt-2 text-3xl text-white font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Features -  Lorem ipsum dolor sit amet consectetur
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit magnis, vel varius euismod class convallis ut turpis commodo ad,
-           
-          </p>
-        </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
-            {features.map((feature) => (
-              <div key={feature.name} className="relative pl-16 bg-gray-300">
-                <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-5xl lg:text-center">
+              {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
+              <p className="mt-2 text-3xl text-white font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Features -  Lorem ipsum dolor sit amet consectetur
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit magnis, vel varius euismod class convallis ut turpis commodo ad,
+              
+              </p>
+            </div>
+              {/* <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
+                <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+                  {features.map((feature) => (
+                    <div key={feature.name} className="relative pl-16 bg-gray-300">
+                      <dt className="text-base font-semibold leading-7 text-gray-900">
+                        <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                          <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                        </div>
+                        {feature.name}
+                      </dt>
+                      <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div> */}
+          <div className="flex justify-center ">
+              {/* Column 1 */}
+              <div className=" cardbg textcolor max-w-2xl mx-2 my-4 rounded-md overflow-hidden shadow-md">
+                {/* Card content goes here */}
+                <div className="p-12 ">
+                  <div className='imagemax'>
+
+                  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png' />
                   </div>
-                  {feature.name}
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+                  <h3 className="text-lg font-semibold ">Card 1</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Fusce gravida tincidunt lectus</p>
+                </div>
               </div>
-            ))}
-          </dl>
-        </div>
+
+              {/* Column 2 */}
+              <div className="cardbg textcolor max-w-sm mx-2 my-4 rounded-md overflow-hidden shadow-md">
+                {/* Card content goes here */}
+                <div className="p-12 ">
+                <div className='imagemax'>
+
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png' />
+                </div>
+                  <h3 className="text-lg font-semibold text-color">Card 2</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Fusce gravida tincidunt lectus</p>
+                </div>
+              </div>
+
+              {/* Column 3 */}
+              <div className="cardbg textcolor max-w-sm mx-2 my-5 rounded-md overflow-hidden shadow-md">
+                {/* Card content goes here */}
+                <div className="p-12 ">
+                <div className='imagemax'>
+
+                <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png' />
+                </div>
+                  <h3 className="text-lg font-semibold">Card 3</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Fusce gravida tincidunt lectus</p>
+                </div>
+              </div>
+            </div>
+            
       </div>
     </div>
 
 
-    {/* section 02 */}
+    {/*  section 02 */}
 
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

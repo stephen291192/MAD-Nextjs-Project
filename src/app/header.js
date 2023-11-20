@@ -1,6 +1,8 @@
 'use client'
  
 // import { useState } from 'react'
+import Link from "next/link";
+
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
@@ -12,7 +14,7 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import Link from 'next/link'
+
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
@@ -66,18 +68,7 @@ export default function Home() {
         </div>
         
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-        <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/features">Features</Link>
-            </li>
-            <li>
-              <Link href="/blog/hello-world">Blog Post</Link>
-            </li>
-          </ul>
-
+        
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Home
           </a>
