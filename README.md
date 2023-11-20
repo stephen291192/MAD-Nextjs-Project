@@ -14,6 +14,20 @@ pnpm dev
 bun dev
 ```
 
+ScreenShorts HomePage
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/a8a8102e-af6f-4110-b466-2ec11891eb2a)
+
+ScreenShort Validation
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/508cc297-ad9a-4c39-b724-e45cf7dab79f)
+
+Screenshort - API Validation
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/803f479e-25b7-4bf6-9f1a-4c2cc81270fe)
+
+ScreenShort - Contact Form
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/4c8424f9-05cb-431e-9fed-00dc1a010ef1)
+
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
