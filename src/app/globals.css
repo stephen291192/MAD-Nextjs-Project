@@ -25,3 +25,41 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.btn{
+  padding: 5px 15px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50px;
+  border: 1px solid rgb(0, 0, 0);
+  color: #fff;
+  font-size:13px;
+}
+.btncall {
+  padding: 10px 30px;
+  background-color: rgb(30 66 145 / 73%);
+  border-radius: 50px;
+  border: 1px solid rgb(89 115 173);
+  color: #fff;
+  font-size: 14px;
+}
+.btnFooter {
+  padding: 5px 15px;
+  margin-top: 10px;
+  background-color: rgb(107 114 128);
+  border-radius: 50px;
+  border: 1px solid  rgb(107 114 128);
+  color: #fff;
+  font-size: 13px;
+}
+.logo{
+  font-size: 24px;
+  font-weight: 800;
+}
+.Newsletter{
+  position: relative;
+  top:30px;
+  margin: 0 auto;
+}
+.mC{
+  margin: 0 auto;
+}
+
