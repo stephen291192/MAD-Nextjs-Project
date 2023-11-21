@@ -12,8 +12,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lora', sans-serif;
   /* Add any additional styling you want for headings */
 }
-body {
-  font-family: 'Inter', sans-serif;
+body{
+  font-family: ' Open Sans', sans-serif !important;
   /* Add any additional styling you want for the body/content */
 }
 @media (prefers-color-scheme: dark) {
@@ -43,11 +43,14 @@ body {
 }
 .btncall {
   padding: 10px 30px;
-  background-color: rgb(30 66 145 / 73%);
+  background-color: rgb(30 66 145 / 100%);
   border-radius: 50px;
   border: 1px solid rgb(89 115 173);
   color: #fff;
   font-size: 14px;
+}
+.btncall:hover{
+  background-color: rgb(30 66 145 / 73%);
 }
 .btnFooter {
   padding: 5px 15px;
@@ -71,7 +74,7 @@ body {
 .logo{
   font-size: 24px;
   font-weight: 800;
-}s
+}
 .Newsletter{
   position: relative;
   top:30px;
@@ -86,9 +89,14 @@ body {
 }
 .cardbg:hover{
   background-color: #77736f59;
-
+ 
 }
 
+.btnFooter:hover
+{
+  background-color: #77736f59;
+  border: 1px solid #77736f2c;
+}
 .textcolor{
 color: #c6c6c6;
 text-align: center;

@@ -25,7 +25,7 @@ const Footer = () => {
 
         {/* Column 2 */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Freelancer</h2>
+          <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
           <div className="flex items-center">
             <span className="text-2xl font-bold">$</span>
             <span className="text-5xl font-bold">29</span>
@@ -43,7 +43,7 @@ const Footer = () => {
 
         {/* Column 3 */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Freelancer</h2>
+          <h2 className="text-xl font-semibold mb-4">Service</h2>
           <div className="flex items-center">
             <span className="text-2xl font-bold">$</span>
             <span className="text-5xl font-bold">39</span>
@@ -59,7 +59,7 @@ const Footer = () => {
           <button className="btnFooter">Click Me</button>
         </div>
         <div>
-          <h2 className="text-xl font-semibold mb-4">Freelancer</h2>
+          <h2 className="text-xl font-semibold mb-4">Contact</h2>
           <div className="flex items-center">
             <span className="text-2xl font-bold">$</span>
             <span className="text-5xl font-bold">49</span>

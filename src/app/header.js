@@ -70,7 +70,7 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-             <h2 className="font-semibold logo">Logo</h2>
+             <h1 className="font-semibold logo">Logo</h1>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -89,7 +89,7 @@ export default function Header() {
           <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
             Home
           </a>
-          
+
           <a
             href="/features"
             className="text-sm font-semibold leading-6 text-gray-900"

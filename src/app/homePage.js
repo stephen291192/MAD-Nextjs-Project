@@ -227,7 +227,7 @@ const HomePage = () => {
         <div className="relative isolate px-6 lg:px-8">
           <div className="mx-auto max-w-3xl py-32 sm:py-48 lg:py-20">
             <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </h1>
               <p className="mt-6 text-sm leading-6 text-gray-600">
@@ -316,9 +316,9 @@ const HomePage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-5xl lg:text-center">
             {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
-            <p className="mt-2 text-3xl text-white font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="mt-2 text-3xl text-white font-bold tracking-tight text-gray-900 sm:text-4xl">
               Features - Lorem ipsum dolor sit amet consectetur
-            </p>
+            </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Lorem ipsum dolor sit amet consectetur adipiscing elit magnis, vel
               varius euismod class convallis ut turpis commodo ad,
@@ -405,28 +405,28 @@ const HomePage = () => {
                     <button className="btnFooterVi font-semibold">
                       VUE.AI 30.60.90
                     </button>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                       A better workflow
-                    </p>
+                    </h1>
                     <p className="mt-6 text-lg leading-8 text-gray-600">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Maiores impedit perferendis suscipit eaque, iste dolor
                       cupiditate blanditiis ratione.
                     </p>
-                    <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                    <div className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                       {features.map((feature) => (
                         <div key={feature.name} className="relative pl-9">
-                          <dt className="inline font-semibold text-gray-600">
+                          <p className="inline font-semibold text-gray-600">
                             <feature.icon
                               className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
                               aria-hidden="true"
                             />
                             {feature.name}
-                          </dt>{" "}
+                          </p>{" "}
                           <dd className="inline">{feature.description}</dd>
                         </div>
                       ))}
-                    </dl>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -447,10 +447,10 @@ const HomePage = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-5xl lg:text-center">
               {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
-              <p className="mt-1 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h1 className="mt-1 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Industries - Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit.
-              </p>
+              </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                 gravida tincidunt lectus, et faucibus tellus consectetur vel.
@@ -608,10 +608,10 @@ const HomePage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
-            <p className="mt-2 text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
+            <h1 className="mt-2 text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
               Feel free to download this wireframe <br />
               Stay updated for more
-            </p>
+            </h1>
             <button className="mt-5 btncall" onClick={openModal}>
               Contact us
             </button>

@@ -19,10 +19,10 @@ const LogoContentCarousel = () => {
     <div >
       <div className="mx-auto max-w-5xl lg:text-center mb-5 pb-5">
               {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2> */}
-              <p className="mt-1 text-3xl text-gray-900 sm:text-4xl">
+              <h2 className="mt-1 text-3xl text-gray-900 sm:text-4xl">
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                 gravida tincidunt lectus."
-              </p>
+              </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 varius, arcu nibh feugiat enim, et fermentum orci nisi vel
                 felis.{" "}
