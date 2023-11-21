@@ -32,6 +32,14 @@ ScreenShort - Contact Form
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/4c8424f9-05cb-431e-9fed-00dc1a010ef1)
 
 
+Responsiveness Check
+Screenshort - 1 
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/5d45e503-c8b1-4908-8174-e6e52711fa33)
+
+Screenshort - 2
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/e8f1643b-ab16-4e00-8bac-e45ba5d03050)
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
