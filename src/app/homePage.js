@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from 'next/image'
 import logo from '../app/pictures/icon.png'
-import { CreateMailReq } from "./apiservice/api";
+import { CreateMailReq,CreateContactFormAPI} from "./apiservice/api";
 import LogoContentCarousel from "./LogoContentCarousel";
 import Modal from './model';
 import Contact from "./contact";
@@ -44,6 +44,9 @@ const HomePage = () => {
       setEmailError("Invalid Email!");
     }
   };
+
+ 
+  
 
   // Create API Function - Email Request
   const CreateMailReqFunction = async () => {

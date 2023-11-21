@@ -2,13 +2,93 @@
 import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
-
+import validator from "validator";
+import { CreateContactFormAPI} from "./apiservice/api";
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function homeconForm() {
+
   const [agreed, setAgreed] = useState(false)
+
+  const [fName,setFName] = useState('')
+  const [lName,setLName] = useState('')
+  const [pNo,setpNo] = useState('')
+  const [email,setEmail] = useState('')
+  const [msg,setMsg] = useState('')
+
+
+// Validation
+const validateEmail = (e) => {
+    var email = e.target.value
+    if (validator.isEmail(email)) {
+      setEmailError()
+    } else {
+      setEmailError('Invalid Email!')
+    }
+  }
+
+  const validatePhoneNo = (e) => {
+    const phone = e.target.value.trim()
+    if (phone.length < 10) {
+      setMobileNo('PhoneNo should be 10 digits')
+    } else {
+      setMobileNo()
+    }
+  }
+
+     // Create API Function - Contact form
+     const CreateContactFormFun = async () => {
+        const body = {
+            FirstName : fName,
+            LastName : lName,
+            PhoneNumber : pNo,
+            email: email,
+            Message : msg,
+
+        };
+        var response;
+        try {
+          response = await CreateContactFormAPI(body);
+          // alert('01')
+    
+          if (response) {
+           
+    
+            if (response.status === "SUCCESS") {
+              setEmail("");
+              setEmailError("");
+            } else {
+              // toast.error('No Data Found')
+            }
+          } else {
+            toast()
+            .warning("BackEnd is not Connect")
+            .with({
+              shape: "snackBar",
+              duration: 4000,
+              speed: 1000,
+              positionX: "center",
+              positionY: "left",
+              color: "bg-red-300",
+              fontColor: "white",
+              fontTone: 800,
+            })
+            .show();
+          }
+        } catch (err) {
+          if (err.response) {
+            if (err.response.data && err.response.data.success === false) {
+              // toast.error(err.response.data.error)
+            }
+          } else if (err.request) {
+            // toast.error('No Internet')
+          } else {
+            // toast.error('Something Went Wrong' + err)
+          }
+        }
+      };
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-1 lg:px-8">
@@ -34,13 +114,17 @@ export default function Example() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              First name
+              First name <code style={{ color: 'red' }}>*</code>
             </label>
             <div className="mt-2.5">
               <input
                 type="text"
                 name="first-name"
                 id="first-name"
+                value={fName}
+                onChange={(e)=>{
+                    setFName(e.target.value)
+                }}
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -48,39 +132,55 @@ export default function Example() {
           </div>
           <div>
             <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              Last name
+              Last name <code style={{ color: 'red' }}>*</code>
             </label>
             <div className="mt-2.5">
               <input
                 type="text"
                 name="last-name"
                 id="last-name"
+                required
+                value={lName}
+                onChange={(e)=>{
+                    setLName(e.target.value)
+                }}
+                disabled = {!fName}
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-          {/* <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
-              Company
+          <div className="sm:col-span-2">
+            <label htmlFor="PhoneNumber" className="block text-sm font-semibold leading-6 text-gray-900">
+            Phone Number <code style={{ color: 'red' }}>*</code>
             </label>
             <div className="mt-2.5">
               <input
-                type="text"
-                name="company"
-                id="company"
-                autoComplete="organization"
+                type="number"
+                value={pNo}
+                onChange={(e)=>{
+                    setpNo(e.target.value)
+                }}
+                disabled = {!fName || !lName}
+                name="PhoneNumber"
+                id="PhoneNumber"
+                autoComplete="PhoneNumber"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
-          </div> */}
+          </div>
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Email
+              Email <code style={{ color: 'red' }}>*</code>
             </label>
             <div className="mt-2.5">
               <input
                 type="email"
+                value={email}
+                onChange={(e)=>{
+                    setEmail(e.target.value)
+                }}
+                disabled = {!fName || !lName || !pNo}
                 name="email"
                 id="email"
                 autoComplete="email"
@@ -88,53 +188,29 @@ export default function Example() {
               />
             </div>
           </div>
-          {/* <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-              Phone number
-            </label>
-            <div className="relative mt-2.5">
-              <div className="absolute inset-y-0 left-0 flex items-center">
-                <label htmlFor="country" className="sr-only">
-                  Country
-                </label>
-                <select
-                  id="country"
-                  name="country"
-                  className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
-                >
-                  <option>US</option>
-                  <option>CA</option>
-                  <option>EU</option>
-                </select>
-                <ChevronDownIcon
-                  className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <input
-                type="tel"
-                name="phone-number"
-                id="phone-number"
-                autoComplete="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div> */}
+         
           <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-              Message
+            <label htmlFor="message" className="block  text-sm font-semibold leading-6 text-gray-900">
+              Message (optional)
             </label>
             <div className="mt-2.5">
               <textarea
                 name="message"
                 id="message"
+                value={msg}
+                onChange={(e) =>{
+                    setMsg(e.target.value)
+
+                }}
+                disabled = {!fName || !lName || !email || !pNo}
+
                 rows={4}
                 className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={''}
               />
             </div>
           </div>
-          <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
+          {/* <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
             <div className="flex h-6 items-center">
               <Switch
                 checked={agreed}
@@ -161,11 +237,16 @@ export default function Example() {
               </a>
               .
             </Switch.Label>
-          </Switch.Group>
+          </Switch.Group> */}
         </div>
         <div className="mt-10">
           <button
             type="submit"
+            onClick={(e)=>{
+                CreateContactFormFun()
+                e.preventDefault()
+            }}
+            disabled={!fName || !lName || !email || !pNo}
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Let's talk
