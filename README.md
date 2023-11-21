@@ -24,6 +24,8 @@ ScreenShort Email Validation
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/508cc297-ad9a-4c39-b724-e45cf7dab79f)
 
 Screenshort - API Function Validation
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/e18609ad-78a5-477c-90b8-4fad6d76b9c4)
+
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/803f479e-25b7-4bf6-9f1a-4c2cc81270fe)
 
 ScreenShort - Contact Form
