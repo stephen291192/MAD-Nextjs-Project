@@ -8,20 +8,21 @@ import {
   FingerPrintIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
-import Image from 'next/image'
-import logo from '../app/pictures/icon.png'
-import { CreateMailReq,CreateContactFormAPI} from "./apiservice/api";
+import Image from "next/image";
+import logo from "../app/pictures/icon.png";
+import { CreateMailReq, CreateContactFormAPI } from "./apiservice/api";
 import LogoContentCarousel from "./LogoContentCarousel";
-import Modal from './model';
+import Modal from "./model";
 import Contact from "./contact";
 import TestimonialSection from "./Testimonial";
+import Head from 'next/head';
+import ContactForm from "./homeconForm";
 
-import ContactForm from "./homeconForm"; 
-
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar } from "react-icons/ai";
 const HomePage = () => {
-
-  const StarIcon = () => <AiFillStar className="inline-block w-5 h-5 text-yellow-500 mr-2" />;
+  const StarIcon = () => (
+    <AiFillStar className="inline-block w-5 h-5 text-yellow-500 mr-2" />
+  );
 
   const { toast, snackbar } = require("tailwind-toast");
   const [email, setEmail] = useState("");
@@ -45,9 +46,6 @@ const HomePage = () => {
     }
   };
 
- 
-  
-
   // Create API Function - Email Request
   const CreateMailReqFunction = async () => {
     const body = {
@@ -56,8 +54,7 @@ const HomePage = () => {
     var response;
     try {
       response = await CreateMailReq(body);
-      // alert('01')
-
+      
       if (response) {
         toast()
           .success("BackEnd is not Connect")
@@ -81,18 +78,18 @@ const HomePage = () => {
         }
       } else {
         toast()
-        .warning("BackEnd is not Connect")
-        .with({
-          shape: "snackBar",
-          duration: 4000,
-          speed: 1000,
-          positionX: "center",
-          positionY: "left",
-          color: "bg-red-300",
-          fontColor: "white",
-          fontTone: 800,
-        })
-        .show();
+          .warning("BackEnd is not Connect")
+          .with({
+            shape: "snackBar",
+            duration: 4000,
+            speed: 1000,
+            positionX: "center",
+            positionY: "left",
+            color: "bg-red-300",
+            fontColor: "white",
+            fontTone: 800,
+          })
+          .show();
       }
     } catch (err) {
       if (err.response) {
@@ -144,22 +141,25 @@ const HomePage = () => {
 
   const testimonials = [
     {
-      name: 'John Doe',
-      role: 'CEO',
-      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      name: "John Doe",
+      role: "CEO",
+      feedback:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      name: 'Jane Smith',
-      role: 'Designer',
-      feedback: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      name: "Jane Smith",
+      role: "Designer",
+      feedback:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
-      name: 'Jane Smith',
-      role: 'Designer',
-      feedback: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      name: "Jane Smith",
+      role: "Designer",
+      feedback:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
-    
   ];
+
   const Box = ({ icon, title, content }) => {
     return (
       <div className="flex flex-col items-center p-4 bg-gray-200 rounded-md shadow-md">
@@ -171,40 +171,57 @@ const HomePage = () => {
   };
   return (
     <>
-    
+    {/* SEO Section */}
+     <Head>
+        <title>MAD Nextjs Project</title>
+        <meta name="description" 
+        content="Your enterprise AI platform that delivers on business outcomes – obsessively
+        Ditch the treadmill. Ramp up to peak productivity" />
+        <meta name="keywords" 
+        content="MAD, MAD Project" />
+        <meta name="viewport"
+         content="width=device-width, initial-scale=1.0" />
+      </Head>
+
+    {/* Banner Section  */}
       <section className="relative bg-black bg-opacity-50">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-[-1]"
-        style={{ backgroundImage: 'url("https://wallpapersmug.com/download/1920x1200/4301da/bokeh-blur-city-lights-night-colorful-8k.jpg")' }}
-      ></div>
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center z-[-1]"
+          style={{
+            backgroundImage:
+              'url("https://wallpapersmug.com/download/1920x1200/4301da/bokeh-blur-city-lights-night-colorful-8k.jpg")',
+          }}
+        ></div>
 
-      {/* Content Container */}
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-evenly py-16 relative z-10">
-        {/* Left Side Content */}
-        <div className="p-2 text-white max-w-md text-center lg:text-left lg:w-1/2">
-        <h2 className="text-base font-semibold leading-7 text-gray">Deploy faster</h2> 
-          <h1 className="text-5xl font-bold mb-6"> Lorem ipsum dolor sit amet
-         </h1>
-          <p className="text-sm mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Vivamus rutrum, quam ut volutpat commodo, sapien metus convallis erat, cursus suscipit neque eros quis nisl. Donec non fringilla diam, non porta elit.
-          </p>
-          <button className="btnH mb-2">
-            Read More
-          </button>
-        </div>
+        {/* Content Container */}
+        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-evenly py-16 relative z-10">
+          {/* Left Side Content */}
+          <div className="p-2 text-white max-w-md text-center lg:text-left lg:w-1/2">
+            <h2 className="text-base font-semibold leading-7 text-gray">
+              Deploy faster
+            </h2>
+            <h1 className="text-5xl font-bold mb-6">
+              {" "}
+              Lorem ipsum dolor sit amet
+            </h1>
+            <p className="text-sm mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+              rutrum, quam ut volutpat commodo, sapien metus convallis erat,
+              cursus suscipit neque eros quis nisl. Donec non fringilla diam,
+              non porta elit.
+            </p>
+            <button className="btnH mb-2">Read More</button>
+          </div>
 
-        {/* Right Side Form */}
-        <div className="bg-white p-6 m-3 rounded-md shadow-md max-w-md">
-          {/* <h2 className="text-2xl font-bold mb-4 text-gray-800">Subscribe Now</h2> */}
-         
-          <ContactForm />
-         
-          
+          {/* Right Side Form */}
+          <div className="bg-white p-6 m-3 rounded-md shadow-md max-w-md">
+            {/* <h2 className="text-2xl font-bold mb-4 text-gray-800">Subscribe Now</h2> */}
+
+            <ContactForm />
+          </div>
         </div>
-      </div>
-     </section>
+      </section>
 
       <div className="bg-white">
         <div className="relative isolate px-6 lg:px-8">
@@ -219,9 +236,7 @@ const HomePage = () => {
                 cursus suscipit neque eros quis nisl. Donec non fringilla diam,
                 non porta elit.
               </p>
-              <div>
-             
-              </div>
+              <div></div>
               <div className="flex max-w-md mC pt-5 gap-x-1 Newsletter">
                 <label htmlFor="email-address" className="sr-only">
                   Email address
@@ -268,7 +283,7 @@ const HomePage = () => {
           <div className="max-w-7xl m-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 bg-gray-300">
               <div className="bg-gray-300 p-4 text-center mC">
-              <Image src={logo} placeholder="blur" />
+                <Image src={logo} placeholder="blur" />
                 {/* <img
                   className="h-auto rounded-lg p-8"
                   src="https://images.prismic.io/vueai/61c50e48-fe3b-4345-b550-74f55a5c757e_585990234f6ae202fedf28cf+2.png?auto=compress%2Cformat&fit=max&w=256"
@@ -276,16 +291,16 @@ const HomePage = () => {
                 /> */}
               </div>
               <div className="bg-gray-300 p-4 text-center mC">
-              <Image src={logo} placeholder="blur" />
+                <Image src={logo} placeholder="blur" />
               </div>
               <div className="bg-gray-300 p-4 text-center mC">
-              <Image src={logo} placeholder="blur" />
+                <Image src={logo} placeholder="blur" />
               </div>
               <div className="bg-gray-300 p-4 text-center mC">
-              <Image src={logo} placeholder="blur" />
+                <Image src={logo} placeholder="blur" />
               </div>
               <div className="bg-gray-300 p-4 text-center mC">
-              <Image src={logo} placeholder="blur" />
+                <Image src={logo} placeholder="blur" />
               </div>
             </div>
             <div className="mC bg-gray-300 p-5 text-sm font-semibold text-center mt-1">
@@ -293,10 +308,9 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-
         <br /> <br />
       </div>
-     
+
       {/* Featiure section 02 */}
       <div className="bg-black py-24 sm:py-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -333,7 +347,7 @@ const HomePage = () => {
                 <div className="imagemax">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png" />
                 </div>
-                <h3 className="text-lg font-semibold">Card 1</h3>
+                <h3 className="mb-3 text-lg font-semibold">Lorem ipsum dolor</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   gravida tincidunt lectus
@@ -348,7 +362,7 @@ const HomePage = () => {
                 <div className="imagemax">
                   <img src="https://icons.iconarchive.com/icons/matiasam/ios7-style/512/Clear-Tick-icon.png" />
                 </div>
-                <h3 className="text-lg font-semibold text-color">Card 2</h3>
+                <h3 className="mb-3 text-lg font-semibold text-color">Lorem ipsum </h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   gravida tincidunt lectus
@@ -363,7 +377,7 @@ const HomePage = () => {
                 <div className="imagemax">
                   <img src="https://icones.pro/wp-content/uploads/2021/02/icone-de-tique-ronde-bleue.png" />
                 </div>
-                <h3 className="text-lg font-semibold">Card 3</h3>
+                <h3 className="mb-3 text-lg font-semibold">Lorem ipsum dolor</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   gravida tincidunt lectus
@@ -423,16 +437,12 @@ const HomePage = () => {
 
       {/*  section 02 */}
       <div className="bg-white">
-     
         <div className="bg-white py-24 sm:py-1 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center">
-           
-      <TestimonialSection testimonials={testimonials} />
-
-            
+            <TestimonialSection testimonials={testimonials} />
           </div>
         </div>
-        
+
         <div className="bg-white py-24 sm:py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-5xl lg:text-center">
@@ -474,115 +484,124 @@ const HomePage = () => {
       <div className="bg-white pb-10 ">
         <div className="bg-black text-white p-1 text-center max-w-6xl mC">
           <p className="md:max-w-md mC lg:max-w-xl xl:max-w-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor
           </p>
         </div>
-    </div>
-      
-          
+      </div>
+
       {/* slider */}
       <div className="bg-gray-200 py-24 sm:py-20 mx-auto lg:text-center">
         <div className="max-w-5xl mC">
-        <LogoContentCarousel />
+          <LogoContentCarousel />
         </div>
       </div>
 
-  {/* Pricing Section   */}
-    <section className="py-10 mx-auto text-center lg:text-center">
-      <h1 className="text-4xl font-bold py-8">Our Pricing Plans</h1>
-      <p className="pb-10 max-w-2xl mC lg:text-center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida tincidunt lectus, et faucibus tellus
-        consectetur vel. Sed feugiat consectetur ante, sit amet viverra dolor sollicitudin sit amet. Integer commodo,
-        felis sit amet tristique
-      </p>
+      {/* Pricing Section   */}
+      <section className="py-10 mx-auto text-center lg:text-center">
+        <h1 className="text-4xl font-bold py-8">Our Pricing Plans</h1>
+        <p className="pb-10 max-w-2xl mC lg:text-center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida
+          tincidunt lectus, et faucibus tellus consectetur vel. Sed feugiat
+          consectetur ante, sit amet viverra dolor sollicitudin sit amet.
+          Integer commodo, felis sit amet tristique
+        </p>
 
-      <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row items-center lg:items-stretch">
-        {/* Pricing Column 1 */}
-        <div className="flex-1 mx-4 bg-white p-8 rounded-lg shadow-md hover:bg-blue-100 transition duration-300 max-w-md mb-8 lg:mb-0">
-          <h2 className="text-2xl font-semibold mb-4">Basic Plan</h2>
-          <p className="text-gray-600 mb-4">The essentials to provide your best work for clients.</p>
-          <p className="text-3xl font-bold text-blue-500 mb-5">$19.99/month</p>
-          <ul className="pb-5 list-disc list-inside">
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              5 products
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              Up to 1,000 subscribers
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              Basic analytics
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              48-hour support response
-            </li>
-          </ul>
-          <button className="mt-4 bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300">
-            Get Started
-          </button>
+        <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row items-center lg:items-stretch">
+          {/* Pricing Column 1 */}
+          <div className="flex-1 mx-4 bg-white p-8 rounded-lg shadow-md hover:bg-blue-100 transition duration-300 max-w-md mb-8 lg:mb-0">
+            <h2 className="text-2xl font-semibold mb-4">Basic Plan</h2>
+            <p className="text-gray-600 mb-4">
+              The essentials to provide your best work for clients.
+            </p>
+            <p className="text-3xl font-bold text-blue-500 mb-5">
+              $19.99/month
+            </p>
+            <ul className="pb-5 list-disc list-inside">
+              <li className="mb-2 flex items-center">
+                <StarIcon />5 products
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                Up to 1,000 subscribers
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                Basic analytics
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                48-hour support response
+              </li>
+            </ul>
+            <button className="mt-4 bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition duration-300">
+              Get Started
+            </button>
+          </div>
+
+          {/* Pricing Column 2 */}
+          <div className="flex-1 mx-4 bg-white p-8 rounded-lg shadow-md hover:bg-green-100 transition duration-300 max-w-md mb-8 lg:mb-0">
+            <h2 className="text-2xl font-semibold mb-4">Standard Plan</h2>
+            <p className="text-gray-600 mb-4">
+              A plan that scales with your rapidly growing business.
+            </p>
+            <p className="text-3xl font-bold text-green-500 mb-5">
+              $39.99/month
+            </p>
+            <ul className="pb-5 list-disc list-inside">
+              <li className="mb-2 flex items-center">
+                <StarIcon />5 products
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                Up to 1,000 subscribers
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                Basic analytics
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                48-hour support response
+              </li>
+            </ul>
+            <button className="mt-4 bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600 transition duration-300">
+              Get Started
+            </button>
+          </div>
+
+          {/* Pricing Column 3 */}
+          <div className="flex-1 mx-4 bg-white p-8 rounded-lg shadow-md hover:bg-purple-100 transition duration-300 max-w-md">
+            <h2 className="text-2xl font-semibold mb-4">Premium Plan</h2>
+            <p className="text-gray-600 mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p className="text-3xl font-bold text-purple-500 mb-5">
+              $59.99/month
+            </p>
+            <ul className="pb-5 list-disc list-inside">
+              <li className="mb-2 flex items-center">
+                <StarIcon />5 products
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                Up to 1,000 subscribers
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                Basic analytics
+              </li>
+              <li className="mb-2 flex items-center">
+                <StarIcon />
+                48-hour support response
+              </li>
+            </ul>
+            <button className="mt-4 bg-purple-500 text-white py-2 px-6 rounded-full hover:bg-purple-600 transition duration-300">
+              Get Started
+            </button>
+          </div>
         </div>
-
-        {/* Pricing Column 2 */}
-        <div className="flex-1 mx-4 bg-white p-8 rounded-lg shadow-md hover:bg-green-100 transition duration-300 max-w-md mb-8 lg:mb-0">
-          <h2 className="text-2xl font-semibold mb-4">Standard Plan</h2>
-          <p className="text-gray-600 mb-4">A plan that scales with your rapidly growing business.</p>
-          <p className="text-3xl font-bold text-green-500 mb-5">$39.99/month</p>
-          <ul className="pb-5 list-disc list-inside">
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              5 products
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              Up to 1,000 subscribers
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              Basic analytics
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              48-hour support response
-            </li>
-          </ul>
-          <button className="mt-4 bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600 transition duration-300">
-            Get Started
-          </button>
-        </div>
-
-        {/* Pricing Column 3 */}
-        <div className="flex-1 mx-4 bg-white p-8 rounded-lg shadow-md hover:bg-purple-100 transition duration-300 max-w-md">
-          <h2 className="text-2xl font-semibold mb-4">Premium Plan</h2>
-          <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p className="text-3xl font-bold text-purple-500 mb-5">$59.99/month</p>
-          <ul className="pb-5 list-disc list-inside">
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              5 products
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              Up to 1,000 subscribers
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              Basic analytics
-            </li>
-            <li className="mb-2 flex items-center">
-              <StarIcon />
-              48-hour support response
-            </li>
-          </ul>
-          <button className="mt-4 bg-purple-500 text-white py-2 px-6 rounded-full hover:bg-purple-600 transition duration-300">
-            Get Started
-          </button>
-        </div>
-      </div>
-    </section>
-
+      </section>
 
       {/* Footer Top section */}
       <div className="bg-gray-300 py-24 sm:py-20 ">
@@ -593,26 +612,24 @@ const HomePage = () => {
               Feel free to download this wireframe <br />
               Stay updated for more
             </p>
-            <button className="mt-5 btncall"
-            onClick={openModal}
-            >Contact us</button>
+            <button className="mt-5 btncall" onClick={openModal}>
+              Contact us
+            </button>
           </div>
           <div className="max-w-5xl h-5">
-      {/* <button
+            {/* <button
         onClick={openModal}
         className="bg-blue-500 text-white px-4 py-2 rounded-md"
       >
         Open Modal
       </button> */}
 
-       <div className="max-w-sm"> 
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-
-        <Contact />
-      
-      </Modal>
-       </div>
-    </div>
+            <div className="max-w-sm">
+              <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <Contact />
+              </Modal>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -1,13 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', sans-serif;
+  /* Add any additional styling you want for headings */
+}
+body {
+  font-family: 'Inter', sans-serif;
+  /* Add any additional styling you want for the body/content */
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -104,7 +112,15 @@ padding-bottom: 10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.zindex{
+  z-index: 9999 !important;
+}
 
+.ring-gray-900\/5 {
+  --tw-ring-color: rgb(17 24 39 / 0.05);
+
+  z-index: 9999;
+}
 /* .slick-prev:before {
  position: relative;
   left: -50px !important;

@@ -1,12 +1,14 @@
+"use client";
 import React from "react";
-
-const Team = () => {
+import Link from "next/link";
+const team = () => {
     return (
       <div>
+        
         <h1>Team Page</h1>
         <p>This is the about page of our Next.js app.</p>
       </div>
     );
   };
   
-  export default Team;
+  export default team;
