@@ -15,16 +15,30 @@ bun dev
 ```
 
 ScreenShorts HomePage
-![image](https://github.com/stephen291192/MAD-Project/assets/65404247/a8a8102e-af6f-4110-b466-2ec11891eb2a)
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/d52a6b4b-6354-4cf1-a76d-c7dafdfd360e)
+
+ScreenShort - Home Banner form Validation 
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/4b2ef340-008e-4899-a657-28a16e293f1c)
 
 ScreenShort Email Validation
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/508cc297-ad9a-4c39-b724-e45cf7dab79f)
 
 Screenshort - API Function Validation
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/e18609ad-78a5-477c-90b8-4fad6d76b9c4)
+
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/803f479e-25b7-4bf6-9f1a-4c2cc81270fe)
 
 ScreenShort - Contact Form
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/4c8424f9-05cb-431e-9fed-00dc1a010ef1)
+
+
+Responsiveness Check
+Screenshort - 1 
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/5d45e503-c8b1-4908-8174-e6e52711fa33)
+
+Screenshort - 2
+
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/e8f1643b-ab16-4e00-8bac-e45ba5d03050)
 
 
 
