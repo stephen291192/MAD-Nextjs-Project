@@ -15,7 +15,7 @@ bun dev
 ```
 
 ScreenShorts HomePage
-![image](https://github.com/stephen291192/MAD-Project/assets/65404247/d52a6b4b-6354-4cf1-a76d-c7dafdfd360e)
+![image](https://github.com/stephen291192/MAD-Project/assets/65404247/2478153b-713c-47e4-9fd6-bd8981ada0d1)
 
 ScreenShort - Home Banner form Validation 
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/4b2ef340-008e-4899-a657-28a16e293f1c)
