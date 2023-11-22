@@ -17,6 +17,9 @@ bun dev
 ScreenShorts HomePage
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/2478153b-713c-47e4-9fd6-bd8981ada0d1)
 
+ScreenShot InnerPage 
+![image](https://github.com/stephen291192/MAD-Nextjs-Project/assets/65404247/ac92d955-1b21-4e7b-821b-89729b52c9a6)
+
 ScreenShort - Home Banner form Validation 
 ![image](https://github.com/stephen291192/MAD-Project/assets/65404247/4b2ef340-008e-4899-a657-28a16e293f1c)
 
