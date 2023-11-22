@@ -4,7 +4,7 @@ import HomePage from './homePage'
 import Footer from './footer'
 import Head from 'next/head';
 import Link from 'next/link';
-export default function Home() {
+export default function Home({children}) {
   return (
    <> 
   <Head>
@@ -18,8 +18,9 @@ export default function Home() {
 
    <Header />
    <HomePage /> 
+   <main>{children}</main>
    <Footer />
    </>
     
-  )
+  ) 
 }
